@@ -1,0 +1,11 @@
+functions:
+  name: my-cloud-function
+  provider:
+    project: my-google-project-name
+    region: us-east1
+  config:
+    entry-point: http-entry
+    runtime: nodejs20
+    trigger-http: true
+    set-secrets:
+      SECRET_VARIABLE: google-secret:version

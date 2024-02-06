@@ -1,0 +1,6 @@
+run:
+  config:
+    cpu: 1
+    memory: 1Gi
+    min-instances: 1
+    max-instances: 10

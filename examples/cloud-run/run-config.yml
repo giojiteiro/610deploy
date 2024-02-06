@@ -1,0 +1,23 @@
+run:
+  name: my-service-${ENV}
+
+  provider:
+    project: ${GOOGLE_PROJECT}
+    region: ${REGION}
+
+  config:
+    no-allow-unauthenticated: true
+    concurrency: 80
+    cpu: 1
+    description: My Node.js microservice
+    execution-environment: gen2
+    image: url-to-docker-image #usually set by pipelines in automation
+    memory: 512Mi
+    min-instances: 0
+    max-instances: 10
+    port: 4010
+    set-secrets:
+      /secrets/.env: google-secret-for-service:version
+    timeout: 3600
+    vpc-connector: ${CONNECTOR}
+    vpc-egress: all-traffic

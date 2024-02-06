@@ -1,0 +1,20 @@
+functions:
+  command-variant: beta
+  name: my-cloud-function-{ENV}
+  provider:
+    project: ${GOOGLE_PROJECT}
+    region: ${REGION}
+  config:
+    gen2: true
+    entry-point: http-entry
+    runtime: nodejs20
+    trigger-http: true
+    vpc-connector: ${CONNECTOR}
+    min-instances: 1
+    max-instances: 10
+    concurrency: 800
+    cpu: 1
+    memory: 2GB
+    quiet: true
+    set-secrets:
+      SECRET_VARIABLE: google-secret-${ENV}:version
